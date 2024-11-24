@@ -1,0 +1,569 @@
+<html>
+<head>
+<title>Beanie KAJ Coffee Shop</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    body {
+
+				font-family: Arial, sans-serif;
+
+				margin: 0;
+
+				padding: 0;
+
+			}
+
+			header {
+
+				background-color: #6b4f4f;
+
+				color: white;
+
+				text-align: center;
+
+				padding: 20px 10px;
+
+				position: fixed;
+
+				top: 0;
+
+				width: 100%;
+
+				z-index: 1000;
+
+			}
+
+			header h1 {
+
+				margin: 0;
+
+				font-size: 2em;
+
+			}
+
+			header nav {
+
+				margin-top: 10px;
+
+			}
+
+			header nav button {
+
+				background-color: #8c6e6e;
+
+				color: white;
+
+				border: none;
+
+				padding: 10px 15px;
+
+				margin: 0 5px;
+
+				cursor: pointer;
+
+				border-radius: 5px;
+
+				transition: background-color 0.3s;
+
+			}
+
+			header nav button:hover {
+
+				background-color: #b58383;
+
+			}
+
+			section {
+
+				padding: 100px 20px;
+
+				text-align: center;
+
+			}
+
+			#home {
+
+				background-color: #f8ecec;
+
+				color: #6b4f4f;
+
+			}
+
+			#menu {
+
+				background-color: #e0cfcf;
+
+				color: #4b2e2e;
+
+			}
+
+			#about {
+
+				background-color: #d4bebe;
+
+				color: #3c2727;
+
+			}
+
+			footer {
+
+				background-color: #6b4f4f;
+
+				color: white;
+
+				text-align: center;
+
+				padding: 10px;
+
+				position: fixed;
+
+				bottom: 0;
+
+				width: 100%;
+
+			}
+
+			table {
+
+				width: 60%;
+
+				margin: 0 auto;
+
+				table-layout: fixed;
+
+				border-collapse: collapse;
+
+			}
+
+			th, td {
+
+				width: 33.33%;
+
+				vertical-align: top;
+
+				padding: 15px;
+
+				text-align: left;
+
+			}
+
+			th {
+
+				color: #6b4f4f;
+
+				padding-bottom: 10px;
+
+			}
+
+			.menu-item {
+
+				margin: 10px 0;
+
+				font-size: 15px;
+
+				position: relative;
+
+				padding: 10px;
+
+				display: flex;
+
+				justify-content: space-between;
+
+				align-items: center;
+
+				color: #6b4f4f;
+
+			}
+
+			.menu-description {
+
+				display: none;
+
+				color: #4b2e2e;
+
+				padding: 10px 15px;
+
+				font-size: 14px;
+
+				margin-top: 5px;
+
+				font-style: italic;
+
+			}
+ 
+			.arrow {
+
+				font-size: 1.2em;
+
+				cursor: pointer;
+
+				display: inline-block;
+
+				margin-left: 10px;
+
+			}
+
+			.arrow:hover {
+
+				color: #6b4f4f;
+
+			}
+
+			.logo {
+
+				width: 15%;
+
+				padding: 30px;
+
+				margin-left: auto;
+
+				margin-right: auto;
+
+			}
+
+			.alignment {
+
+				display: flex;
+
+				justify-content: center;
+
+				gap: 60px;
+
+				padding: 20px;
+
+			}
+
+			.alignment img {
+
+				height: 40vh;
+
+				border-radius: 50%;
+
+				object-fit: cover;
+
+				text-align: center;
+
+			}
+
+			.text {
+
+				width: 15%;
+
+				text-alignment: center;
+
+				overflow: hidden;
+
+			}
+
+			.text img {
+
+				width: 100%;
+
+				height: auto;
+
+			}
+
+			.text p {
+
+				margin-top: 10px;
+
+				font-size: 15px;
+
+				color: #3c2727;
+
+			}
+
+			.image {
+
+				display: flex;
+
+				justify-content: center;
+
+				gap: 20px;
+
+				flex-wrap: wrap;
+
+			}
+
+			.txt footer {
+
+				display: flex;
+
+				justify-content: space-between;
+
+				gap: 20px;
+
+				white-space: nowrap;
+
+			}
+
+			.txt {
+
+				font-size: 14px;
+
+				color: white;
+
+				margin: 0;
+
+			}
+</style>
+</head>
+<body>
+<header>
+    <h1>Beanie KAJ Cafe</h1>
+    <nav>
+        <button id="btnHome">Home</button>
+        <button id="btnMenu">Menu</button>
+        <button id="btnAbout">About Us</button>
+    </nav>
+</header>
+
+<section id="home">
+    <img src="Logo ☕️.png" alt="Beanie KAJ Logo" class="logo">
+    <h2>Welcome to Beanie KAJ Cafe!</h2>
+    <p><b><i>Your perfect cup of coffee, brewed with love and passion!</b></i></p>
+    <p><b>Ready to give a shot on this freshly and purely made caffeine, free-coffee and pastries? <br>These menus are waiting for you to have your curiousity! Welcoming you all to experience the <br>warm love gave by the cafe and dearest owners.</b><i> —Beanie KAJ owners</i></p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <table>
+<tr>
+<th><h3>☕ COFFEE SERIES</h3></th>
+<th><h3>🧋 NON-COFFEE SERIES</h3></th>
+<th><h3>🍪 PASTRIES</h3></th>
+</tr>
+<tr>
+<td>
+<div class="menu-item">
+
+						☕ Espresso - ₱100 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Made with finely ground coffee beans added with sugar for a bit of sweetness.</li>
+<li>Can be done hot or iced, depending on your preferred drink.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🧋 Chocosaurus Shake - ₱120 <span class="arrow">˅</span>
+</div>
+ 
+					<div class="menu-description">
+<ul>
+<li>Blended chocolate powder mixed with sugar and ice topped with chocolate powder.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🍪 Brownie - ₱70 (one slice) / ₱120 (box of 6) <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Freshly baked with egg, flour, cocoa powder, sugar, butter, baking soda, and salt.</li>
+<li>Can be sold as one slice or a box of six chunky brownies.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="menu-item">
+
+						☕ Hot Cappuccino - ₱120 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>A hot brewed espresso mixed with steamed milk, sugar, and regular whipped cream topped with ground cinnamon to embrace the vibe of the drink.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🧋 Ube Frappe - ₱120 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Blended ube halaya mixed with milk, sugar, and ice topped with whipped cream.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🍪 Blueberry Muffin - ₱90 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Freshly baked with egg, flour, white sugar, baking soda, milk, salt, vegetable oil, and fresh blueberries.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="menu-item">
+
+						☕ Latte - ₱130 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Brewed espresso mixed with vanilla, frothed milk, brown sugar, and regular whipped cream topped with spiral drizzled caramel sauce.</li>
+<li>Can be done hot or iced, depending on your preferred drink.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🧋 Iced Milk Chocolate - ₱110 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Mix of chocolate powder and heavy milk with ice.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🍪 Birthday Muffin - ₱90 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Freshly baked with vanilla, sugar, and butter, with colorful sprinkles on top.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="menu-item">
+
+						☕ Iced Mocha - ₱140 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>A mix of milk, cocoa powder, and regular coffee topped with whipped cream and drizzled chocolate sauce on top.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🧋 Iced Cocoa Vanilla - ₱130 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+ 
+							<li>A mix of cocoa powder, vanilla extract, and milk with ice.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🍪 Chocolate Cookie - ₱85 (2 slices) / ₱110 (4 slices) <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Freshly baked with egg, butter, white sugar, and chocolate chips to give you warm, soft, and palm-sized cookies.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="menu-item">
+
+						☕ Americano - ₱100 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Americano coffee brewed with 100% Arabica beans, sweetened or unsweetened.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🧋 Thai Milk Tea - ₱130 <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>A blend of black tea, condensed milk, black pearl, and ice.</li>
+</ul>
+</div>
+</td>
+<td>
+<div class="menu-item">
+
+						🍪 Choco Chip Cookies - ₱100 (6 pieces) <span class="arrow">˅</span>
+</div>
+<div class="menu-description">
+<ul>
+<li>Freshly baked with egg, sugar, butter, baking soda, and chocolate chips.</li>
+</ul>
+</div>
+</td>
+</tr>
+    </table>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p><i>"At Beanie KAJ, we believe in crafting coffee that warms your heart. Founded with a passion for quality and community, our shop is the perfect place to relax and connect."</i></p>
+    <p><b>A calming, delightful, great ambiance of Beanie KAJ were introduced on November 2024. The friendship of three <br>owners: Jorilyne P. Lanuzo, Kc Cassandra Salvador, and Angelica Chazne Vasquez were bond together <br>to give a try on making their own brewed espresso using ground coffee beans, and that's how <br>it went started this entire cafe.</b></p>
+    <p><b>Beanie KAJ came from our combined names. K for Kc, A for Angelica, and J for Jor. It was created to give every customers a full <br>relaxing and worth it moment inside our cafe. This cafe brings us joy, luck, worthy, and charm that may lead us to be a successful ones.</b></p>
+    <div class="alignment">
+        <div class="text">
+            <img src="kc.jpg" alt="Kc">
+            <p>Kc Cassandra Salvador</p>
+        </div>
+        <div class="text">
+            <img src="chaz.jpg" alt="Ac">
+            <p>Angelica Chazne Vasquez</p>
+        </div>
+        <div class="text">
+            <img src="jor.jpg" alt="Jor">
+            <p>Jorilyne Lanuzo</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Our accounts: Facebook: Beanie KAJ Cafe | Instagram: @itsbeaniekaj | Twitter: @the_beaniekaj | TikTok: @itsyourBeanieKaj</p>
+    <p>© 2024 Beanie KAJ Cafe</p>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        $("#btnHome").click(function () {
+            $("html, body").animate({ scrollTop: $("#home").offset().top }, 800);
+        });
+
+        $("#btnMenu").click(function () {
+            $("html, body").animate({ scrollTop: $("#menu").offset().top }, 800);
+        });
+
+        $("#btnAbout").click(function () {
+            $("html, body").animate({ scrollTop: $("#about").offset().top }, 800);
+        });
+
+        $(".arrow").click(function () {
+            var description = $(this).parent().next(".menu-description");
+            var arrow = $(this);
+            description.stop(true, true).slideToggle(300, function () {
+                arrow.text(description.is(":visible") ? "˄" : "˅");
+            });
+        });
+    });
+</script>
+</body>
+</html>
