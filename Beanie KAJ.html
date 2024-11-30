@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beanie KAJ Coffee Shop</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+        header {
+        background-color: #987554;
+        color: #E5D3B3;
+        text-align: center;
+        padding: 15px 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+        letter-spacing: 1px;
+		font-size: 30px;
+    }
+
+    header nav {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    header nav button {
+        background-color: #664229;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+
+        cursor: pointer;
+        border-radius: 25px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s, transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    header nav button:hover {
+        background-color: #6d5747;
+        transform: scale(1.05);
+    }
+
+    header nav button span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        header nav button {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+    }
+
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+
+
+
+
+		footer {
+        background-color: #664229;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        width: 1480px;
+        position: relative;
+        bottom: 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+	footer a {
+        color: #ffeeba;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #ffd966;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+       
+        #home {
+            background-color: #E5D3B3;
+            color: #BC3908 ;
+        }
+
+        #home .logo {
+            width: 30%;
+            padding: 0px;
+            margin: 0 auto;
+            display: block;
+        }
+
+      
+        #menu {
+            background-color: #e0cfcf;
+            color: #4b2e2e;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            vertical-align: top;
+            padding: 15px;
+            text-align: left;
+        }
+
+
+
+
+
+
+		#menu {
+			background-color: 	#C2B280;
+
+		}
+
+
+		.menu-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 5px solid #664229;
+            border-radius: 8px;
+            background-color: #c5ab8f;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-section h2 {
+            margin-top: 0;
+            color: #993511;
+            text-align: center;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 20px;
+			text-align: left;
+        }
+
+        .menu-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .menu-item-details {
+            flex: 1;
+        }
+
+        .menu-item-details h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .menu-item-details p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .menu-item-details .price {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .menu-item button {
+            background-color: #aa6248;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item button:hover {
+            background-color: #a32f07;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+        }
+
+        .modal-content button {
+            margin: 10px 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .confirm {
+            background-color: #f7d390;
+            color: white;
+        }
+
+        .confirm:hover {
+            background-color: #F5DEB3;
+        }
+
+        .cancel {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .cancel:hover {
+            background-color: #d32f2f;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+   
+        #about {
+            background-color: 	#c2a696;
+            color: #3c2727;
+        }
+
+        .alignment {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .alignment .text {
+            width: 150px;
+			font-size: 30px;
+            text-align: center;
+        }
+
+        .alignment img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .alignment p {
+            margin-top: 10px;
+            font-size: 20px;
+			font-weight: bold;
+        }
+
+
+		.alignment span {
+            font-size: bold;
+			color: rgb(133, 62, 5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .alignment {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+	<header>
+		<h1>BEANIE KAJ Cafe</h1>
+		<nav>
+			<button id="btnHome" aria-label="Go to Home">
+				<span>🏠 Home</span>
+			</button>
+			<button id="btnMenu" aria-label="View Menu">
+				<span>📜 Menu</span>
+			</button>
+			<button id="btnAbout" aria-label="Learn About Us">
+				<span>ℹ️ About Us</span>
+			</button>
+		</nav>
+	</header>
+
+    <main>
+        <section id="home">
+			<br>
+			
+            <img src="LOGO.png" alt="Beanie KAJ Logo" class="logo">
+            <h2>🍃Welcome to Beanie KAJ Cafe!🍂</h2>
+            <p><strong><em>🍁Your perfect cup of coffee, brewed with love and passion!🍁</em></strong></p>
+        </section>
+
+		<hr style="width: 1520px; margin-left: 0; border: none; height: 10px; background-color: #8B4513;">
+
+
+
+
+
+
+
+		<section id="menu">
+
+		<h1>BEANIE KAJ CAFE MENU</h1>
+		<div id="menuContainer"></div>
+	
+		<!-- Modal -->
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<h3>Confirm Your Order</h3>
+				<p id="modalDescription"></p>
+				<button class="confirm" id="confirmOrder">Confirm</button>
+				<button class="cancel" id="cancelOrder">Cancel</button>
+			</div>
+		</div>
+		</section>
+			
+
+
+
+
+
+		<hr style="width: 1520px; margin-left: 0; border: none; height: 10px; background-color: 	#8B4513;">
+
+
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p><em>"At Beanie KAJ, we believe in crafting coffee that warms your heart."</em></p>
+            <div class="alignment">
+                <div class="text">
+                    <img src="kc.jpg" alt="Kc">
+                    <p><span>K</span>c Cassandra Salvador</p>
+                </div>
+                <div class="text">
+                    <img src="chaz.jpg" alt="Chaz">
+                    <p><span>A</span>ngelica Chazne Vasquez</p>
+                </div>
+                <div class="text">
+                    <img src="jor.jpg" alt="Jor">
+                    <p><span>J</span>orilyne Lanuzo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+	<footer>
+		<div class="footer-content">
+			<p>© 2024 Beanie KAJ Cafe</p>
+			<p>
+				Follow us on: 
+				<a href="#" aria-label="Facebook">Facebook</a> | 
+				<a href="#" aria-label="Instagram">Instagram</a> | 
+				<a href="#" aria-label="Twitter">Twitter</a>
+			</p>
+		</div>
+	</footer>
+
+
+
+
+    <script>
+        $(document).ready(() => {
+        
+            $("#btnHome").click(() => $("html, body").animate({ scrollTop: $("#home").offset().top }, 800));
+            $("#btnMenu").click(() => $("html, body").animate({ scrollTop: $("#menu").offset().top }, 800));
+            $("#btnAbout").click(() => $("html, body").animate({ scrollTop: $("#about").offset().top }, 800));
+
+            $(".menu-item").click(function () {
+                const description = $(this).next(".menu-description");
+                description.stop(true, true).slideToggle(300);
+                $(this).find(".arrow").text(description.is(":visible") ? "˄" : "˅");
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		const menuData = [
+            {
+                category: "☕COFFEE SERIES",
+                items: [
+                    {
+                        name: "Espresso",
+                        price: 100,
+                        description: "Made with finely ground coffee beans added with sugar for a bit of sweetness. Can be done hot or iced, depending on your preference.",
+                        image: "Espresso.jpg"
+                    },
+                    {
+                        name: "Hot Cappuccino",
+                        price: 120,
+                        description: "A hot brewed espresso mixed with steamed milk and sugar. Topped with whipped cream and sprinkled with ground cinnamon.",
+                        image: "Cappuccino.jpg"
+                    },
+                    {
+                        name: "Latte",
+                        price: 130,
+                        description: "Espresso mixed with vanilla, frothed milk, and brown sugar. Topped with whipped cream and caramel sauce. Can be served hot or iced.",
+                        image: "latte.jpg"
+                    },
+                    {
+                        name: "Iced Mocha",
+                        price: 140,
+                        description: "Milk, cocoa powder, and coffee topped with whipped cream and chocolate sauce.",
+                        image: "iced Mocha.jpg"
+                    },
+                    {
+                        name: "Iced Matcha Latte",
+                        price: 130,
+                        description: "Espresso, milk, brown sugar, and ground matcha mixed together.",
+                        image: "Iced Matcha Latte.jpg"
+                    },
+                    {
+                        name: "Caramel Macchiato",
+                        price: 135,
+                        description: "Espresso with milk and vanilla syrup, drizzled with caramel sauce. Can be served hot or iced.",
+                        image: "Caramel Macchiato.jpg"
+                    }
+                ]
+            },
+            {
+                category: "🥤NON-COFFEE SERIES",
+                items: [
+                    {
+                        name: "Chocosaurus Shake",
+                        price: 120,
+                        description: "Blended chocolate powder mixed with sugar and ice, topped with chocolate powder.",
+                        image: "Chocosaurus Shake.jpg"
+                    },
+                    {
+                        name: "Ube Frappe",
+                        price: 120,
+                        description: "Blended ube halaya mixed with milk, sugar, and ice topped with whipped cream.",
+                        image: "Ube Frappe.jpg"
+                    },
+					{
+                        name: "Iced Milk Chocolate ",
+                        price: 110,
+                        description: "Mixed of chocolate powder and heavy milk with ice.",
+                        image: "Iced Milk Chocolate.jpg"
+                    },
+					{
+                        name: "Iced Cocoa Vanilla",
+                        price: 130,
+                        description: "mixed of cocoa powder, vanilla extract, and milk with ice.",
+                        image: "Iced Cocoa Vanilla.jpg"
+                    }
+                ]
+            },
+
+
+{
+
+                category: "🧁 PASTRIES",
+                items: [
+                    {
+                        name: "Brownie",
+                        price: 70,
+                        description: "freshly baked with egg, flour, cocoa powder, sugar, butter, baking soda, and salt, can be sold as one sliced or a box of six chunky brownie. one sliced as priced of 70 pesos, and one box as priced of 120 pesos.",
+                        image: "Brownie.jpg"
+                    },
+                    {
+                        name: "Blueberry Muffin",
+                        price: 90,
+                        description: "freshly baked with egg, flour, white sugar, baking soda, milk, salt, vegatable oil, and a fresh blueberries.",
+                        image: "Blueberry Muffin.jpg"
+                    },
+					{
+                        name: "Birthday Muffin",
+                        price: 110,
+                        description: "freshly baked with vanilla, sugar, and butter, with colorful sprinkle on top..",
+                        image: "Birthday Muffin.jpg"
+                    },
+					{
+                        name: "Chocolate Cookie",
+                        price: 110,
+                        description: "- freshly baked with egg, butter, brown sugar, flour, salt, and baking soda, sprinkled chocolate chip on top, Scan be sold as two sliced or a box of four chunky palm-sized cookie, two sliced as priced of 85 pesos, and one box as priced of 110 pesos.",
+                        image: "Chocolate Cookie.jpg"
+                    }
+                ]
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+			
+        ];
+
+        const menuContainer = document.getElementById("menuContainer");
+        const modal = document.getElementById("modal");
+        const modalDescription = document.getElementById("modalDescription");
+        const confirmOrder = document.getElementById("confirmOrder");
+        const cancelOrder = document.getElementById("cancelOrder");
+
+        let selectedItem = null;
+
+        function renderMenu() {
+            menuData.forEach(category => {
+                const section = document.createElement("div");
+                section.className = "menu-section";
+
+                const title = document.createElement("h2");
+                title.textContent = category.category;
+                section.appendChild(title);
+
+                category.items.forEach(item => {
+                    const menuItem = document.createElement("div");
+                    menuItem.className = "menu-item";
+
+                    const image = document.createElement("img");
+                    image.src = item.image;
+                    image.alt = item.name;
+
+                    const details = document.createElement("div");
+                    details.className = "menu-item-details";
+
+                    const name = document.createElement("h3");
+                    name.textContent = item.name;
+
+                    const price = document.createElement("p");
+                    price.innerHTML = `<span class="price">${item.price} pesos</span>`;
+
+                    const description = document.createElement("p");
+                    description.textContent = item.description;
+
+                    const buyButton = document.createElement("button");
+                    buyButton.textContent = "Buy";
+                    buyButton.onclick = () => openModal(item);
+
+                    details.appendChild(name);
+                    details.appendChild(price);
+                    details.appendChild(description);
+                    details.appendChild(buyButton);
+
+                    menuItem.appendChild(image);
+                    menuItem.appendChild(details);
+
+                    section.appendChild(menuItem);
+                });
+
+                menuContainer.appendChild(section);
+            });
+        }
+
+        function openModal(item) {
+            selectedItem = item;
+            modalDescription.textContent = `Are you sure you want to buy ${item.name} for ${item.price} pesos?`;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            selectedItem = null;
+        }
+
+        confirmOrder.onclick = () => {
+            alert(`You have successfully ordered ${selectedItem.name}!`);
+            closeModal();
+        };
+
+        cancelOrder.onclick = closeModal;
+
+        renderMenu();
+
+
+    </script>
+</body>
+
+</html>
